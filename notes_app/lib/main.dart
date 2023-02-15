@@ -4,82 +4,12 @@ void main() {
   runApp(const MyApp());
 }
 
-
-class Cat {
-  final String name;
-  Cat (this.name);
-
-  // custom operator by overriding existing operator
-  // @override
-  // bool operator ==(covariant Cat other) => other.name == name;
-
-  // @override
-  // int get hashCode => name.hashCode;
-}
-
-class Person {
-  final String firstName;
-  final String lastName;
-
-  Person(this.firstName, this.lastName);
-
-}
-
-// extension examples
-extension FullName on Person{
-  // getter in Dart
-  String get fullName => '$firstName $lastName';
-}
-
-extension Run on Cat {
-  void run(){
-    print('Cat $name is running');
-  }
-}
-
-// Future example
-Future<int> heavyFutureThatMultiplyByTwo(int a){
-  return Future.delayed(const Duration(seconds: 3), ()=>a*2);
-}
-
-// Stream example
-Stream<String> getName() {
-  return Stream.periodic(const Duration(seconds:1), (value)=>'Foo');
-}
-
-// using 'async' and 'await' keywords to use asyncronous function(Future function)
-void test() async {
-  // final foo = Person('Foo', 'Bar');
-  // final result = await(heavyFutureThatMultiplyByTwo(20));
-  // print(foo.fullName);
-  // print(result);
-
-  // perform Stream function
-  await for (final value in getName()){
-    print(value);
-  }
-}
-
-// Generic class
-class Pair<A, B> {
-  final A value1;
-  final B value2;
-  Pair(this.value1, this.value2);
-}
-
-// test function for generic class
-void genericTest(){
-  final person = Pair('Foo', 27);
-  print('$person.value1 $person.value2');
-}
-
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    genericTest();
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
