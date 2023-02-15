@@ -1,2 +1,2 @@
 # flutter_projects
-YouTube flutter course projects
+Udemy flutter course projects
